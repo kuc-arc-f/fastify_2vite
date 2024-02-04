@@ -16,8 +16,25 @@ fastify SSR + React  sample
 * vercel deploy sample
 
 ***
+### react-build
+
+```
+npx esbuild --bundle ./src/client.tsx --format=esm --minify --outfile=./public/static/client.js
+```
+
+* dev-start
+```
+yarn dev
+```
+
+* build
+```
+yarn build
+```
+***
 ### blog 
 
+https://zenn.dev/knaka0209/scraps/460f4db1607b94
 
 ***
 
