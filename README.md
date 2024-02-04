@@ -20,6 +20,9 @@ fastify SSR + React SPA sample
 
 ```
 npx esbuild --bundle ./src/client.tsx --format=esm --minify --outfile=./public/static/client.js
+
+# watch-mode
+npx esbuild --bundle ./src/client.tsx --format=esm --minify --outfile=./public/static/client.js --watch
 ```
 
 * dev-start
