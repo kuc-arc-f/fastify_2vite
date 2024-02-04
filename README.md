@@ -6,12 +6,12 @@
 
  date    : 2024/02/03 
 
- update  :
+ update  : 2024/02/04
 
 ***
 ### Summary
 
-fastify SSR + React  sample
+fastify SSR + React SPA sample
 
 * vercel deploy sample
 

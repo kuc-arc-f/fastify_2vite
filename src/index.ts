@@ -34,8 +34,12 @@ console.log("env=", process.env.NODE_ENV);
     reply.type('text/html');
     reply.send(renderToString(Top()));
   });
-  app.get('/', (req, reply) => {
-    reply.send('change me to see updates, fastify!~');
+  //
+  app.get('/*', (req, reply) => {
+//    reply.send('widld*');
+//console.log("#widld")
+    reply.type('text/html');
+    reply.send(renderToString(Top()));
   });
   //
   if (import.meta.env.PROD)
