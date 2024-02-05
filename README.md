@@ -35,6 +35,14 @@ yarn dev
 yarn build
 ```
 ***
+### Setup
+
+* .env , sample
+* external API Server
+```
+VITE_API_URL=http://localhost
+```
+***
 ### blog 
 
 https://zenn.dev/knaka0209/scraps/460f4db1607b94
