@@ -2,8 +2,10 @@ import fastify from 'fastify';
 import path from 'node:path';
 import { fileURLToPath } from 'url';
 import fastifyStatic from '@fastify/static';
-//
 import { renderToString } from 'react-dom/server';
+// router
+import routerTest from './routes/test';
+// pages-SSR
 import Top from './pages/App';
 //
 const __filename = fileURLToPath(import.meta.url);
@@ -23,21 +25,26 @@ console.log("env=", process.env.NODE_ENV);
     root: path.join(__dirname, 'public/static/'),
     prefix: '/public/static/', // optional: default '/'
   });
-  app.get('/ping', (req, reply) => {
-    reply.send({ msg: 'pong' });
-  });
-  app.get('/pong', (req, reply) => {
-    reply.send({ msg: 'ping' });
-  });
   //
   app.get('/test', (req, reply) => {
     reply.type('text/html');
     reply.send(renderToString(Top()));
   });
-  //
+  /*
+  API 
+  */
+  app.get('/api/test1', async (req, reply) => {
+    const ret = await routerTest.test1(req, reply);
+    reply.send(ret)
+  });
+  //sendPost
+  app.post('/api/send_post', async (req, reply) => {
+    const ret = await routerTest.sendPost(req, reply);
+    reply.send(ret)
+  });
+
+  // SPA
   app.get('/*', (req, reply) => {
-//    reply.send('widld*');
-//console.log("#widld")
     reply.type('text/html');
     reply.send(renderToString(Top()));
   });

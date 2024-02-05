@@ -1,5 +1,4 @@
 import LibConfig from './LibConfig';
-//require('dotenv').config();
 //
 const HttpCommon = {
   /**
@@ -38,7 +37,7 @@ const HttpCommon = {
     try {
       item.api_key = "";
       const body: any = JSON.stringify(item);		
-      const res = await fetch(path, {
+      const res = await fetch("/api/send_post", {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},      
         body: body

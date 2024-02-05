@@ -11,7 +11,11 @@ function Page() {
   //
   useEffect(() => {
     (async () => {
+      try{    
         getList();
+      } catch (e) {
+          console.error(e);
+      } 
     })()
   }, []);  
   /**
@@ -24,9 +28,10 @@ function Page() {
     try{
 console.log("#getList");
       const item  = {
+        "api_url": "/test/get_list",
         "userId": 0,
       }
-      const json = await HttpCommon.post(item, "/api/test/test1");
+      const json = await HttpCommon.serverPost(item, "/test/get_list");
       pageItems = json.data;
       console.log(json.data);
       setUpdatetime(new Date().toString());
@@ -52,6 +57,7 @@ console.log("#getList");
     <hr />
     <p>Test-page</p>
     <hr className="my-2" />
+    {/*
     <label>Title:</label>
     <input type="text" id="title" 
     className="border border-gray-400 rounded-md px-3 py-2 w-full focus:outline-none focus:border-blue-500"
@@ -60,6 +66,7 @@ console.log("#getList");
     <button className="btn-purple" onClick={()=>addProc()}>add
     </button>
     <hr className="my-2" />
+    */}
     <button className="btn-purple" onClick={()=>testProc()}>Test
     </button>
     <hr className="my-1" />
