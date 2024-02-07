@@ -42,6 +42,17 @@ yarn build
 ```
 VITE_API_URL=http://localhost
 ```
+
+***
+### tailwindcss
+
+```
+npx tailwindcss -i ./src/main.css -o ./public/static/main.css
+
+# wacth-mode
+npx tailwindcss -i ./src/main.css -o ./public/static/main.css --watch
+```
+
 ***
 ### blog 
 
