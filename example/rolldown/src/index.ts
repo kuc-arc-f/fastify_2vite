@@ -5,17 +5,15 @@ import fastifyStatic from '@fastify/static';
 import { renderToString } from 'react-dom/server';
 // router
 import routerTest from './routes/test';
-// pages-SSR
+// SSR
 import Top from './pages/App';
 
 const __filename = fileURLToPath(import.meta.url);
 let __dirname = path.dirname(__filename);
-if(process.env.NODE_ENV === 'develop'){
-  __dirname = __dirname.replace("/src", '');
-}else{
+if(__dirname.indexOf("/dist") >= 0){
   __dirname = __dirname.replace("/dist", '');
 }
-console.log("__dirname=", __dirname);
+//console.log("__dirname=",  __dirname );
 
 const fastify = require('fastify')({ logger: true });
 fastify.register(fastifyStatic, {
